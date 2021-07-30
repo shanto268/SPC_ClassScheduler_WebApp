@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{{ url_for("gfg")}}" method="post">
+<label for="firstname">Number of Students: </label>
+<input type="number" id="firstname" name="nstudents">
+<br>
+<label for="lastname">Number of Stations: </label>
+<input type="number" id="lastname" name="nstations">
+<br>
+<br>
+<button type="submit">Submit</button>
+{% endblock %}
+

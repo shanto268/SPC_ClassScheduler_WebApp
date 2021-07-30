@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h3>OPTIMIZED SCHEDULE: </h3>
+<br>
+{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+<br>
+<br>
+
+
+{% endblock %}

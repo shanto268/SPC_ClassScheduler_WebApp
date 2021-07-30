@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Class Scheduler</title>
+      {% else %}
+      <title>Class Scheduler</title>
+      {% endif %}
+    </head>
+    <body>
+        <center>
+            <div><h1><b>Class Scheduler V.1</b></h1></div>
+        </center>
+        <hr>
+        <center>
+        {% block content %}{% endblock %}
+        </center>
+    </body>
+</html>

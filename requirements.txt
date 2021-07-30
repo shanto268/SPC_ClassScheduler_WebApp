@@ -1,0 +1,5 @@
+pdfkit==0.6.1
+numpy==1.21.0
+pandas==1.2.0
+Flask==1.1.2
+matplotlib==3.4.2
