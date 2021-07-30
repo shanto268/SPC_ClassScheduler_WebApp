@@ -1,3 +1,8 @@
+gunicorn==19.9.0
+Werkzeug==0.15.6
+Jinja2==2.10.1
+itsdangerous==1.1.0
+MarkupSafe==1.1.1
 pdfkit==0.6.1
 numpy==1.21.0
 pandas==1.2.0
