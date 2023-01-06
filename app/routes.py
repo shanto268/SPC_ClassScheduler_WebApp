@@ -1,12 +1,11 @@
 from app import app
-from flask import Flask, request, render_template, redirect, url_for, Response
+from flask import Flask, request, render_template, redirect, url_for, Response, send_file, send_from_directory
 import os
 import random
 import datetime
 import pandas as pd
 import numpy as np
-import pdfkit as pdf
-
+import glob
 
 def createMatrix(n):
     firstRow = random.sample(range(n), n)
@@ -137,13 +136,14 @@ def createHTML(df, pdfName="foo.pdf"):
     table = df.to_html(classes='mystyle')
 
 
-def getPDF(df, pdfName="schedule.pdf"):
-    df.to_html('results/df.html')
-    pdf.from_file('results/df.html', pdfName)
-
-
 def getCSV(df, pdfName="schedule.csv"):
     df.to_csv(pdfName)
+
+def get_csv_file_name():
+    list_of_files = glob.glob('results/*.csv') # * means all if need specific format then *.csv
+    latest_file = "../"+max(list_of_files, key=os.path.getctime)
+    print(latest_file)
+    return latest_file
 
 
 def webappV1(n_students, n_stations):
@@ -167,21 +167,16 @@ def gfg():
         n_stations = int(request.form.get("nstations"))
 
         df, cfile = webappV1(n_students, n_stations)
+        print("\n\ncfile is {}\n\n".format(cfile))
         # cfile = base_dir + "/" + cfile
         return render_template('simple.html',
                                tables=[df.to_html(classes='data')],
                                titles=df.columns.values,
-                               file=cfile)
+                               csv_file=send_file("../"+cfile,as_attachment=True))
 
     return render_template("form.html")
 
-
-@app.route("/<csvdir>", methods=['get'])
-def get_csv(csvdir):
-    print("here")
-    with open(csvdir) as fp:
-        csv = fp.read()
-    return Response(
-        csv,
-        mimetype="text/csv",
-        headers={"content-disposition": "attachment; filename=data.csv"})
+@app.route('/download')
+def download():
+    path = get_csv_file_name()
+    return send_file(path, as_attachment=True)

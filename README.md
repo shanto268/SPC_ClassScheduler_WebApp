@@ -17,4 +17,6 @@ Open your terminal and go to your desired path and execute the following command
 
 ## Deployment:
 
+[PythonAnywhere](https://shanbro.pythonanywhere.com/) (**Recommended**)
 [DigitalOcean](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
+[Google Cloud Engine](https://cloud.google.com/appengine/docs/standard/python3/building-app)

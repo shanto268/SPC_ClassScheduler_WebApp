@@ -2,10 +2,6 @@ import random
 import datetime
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
-import pdfkit as pdf
-
 
 def createMatrix(n):
     firstRow = random.sample(range(n), n)
@@ -134,11 +130,6 @@ def checkDuplicates(matrix):
 
 def createHTML(df, pdfName="foo.pdf"):
     table = df.to_html(classes='mystyle')
-
-
-def getPDF(df, pdfName="schedule.pdf"):
-    df.to_html('results/df.html')
-    pdf.from_file('results/df.html', pdfName)
 
 
 def getCSV(df, pdfName="schedule.csv"):
