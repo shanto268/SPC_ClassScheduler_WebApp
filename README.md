@@ -17,4 +17,4 @@ Open your terminal and go to your desired path and execute the following command
 
 ## Deployment:
 
-![DigitalOcean](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
+[DigitalOcean](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
