@@ -8,8 +8,13 @@ Open your terminal and go to your desired path and execute the following command
 
 1. `git clone https://github.com/shanto268/SPC_ClassScheduler_WebApp.githttps://github.com/shanto268/SPC_ClassScheduler_WebApp.git`
 2. `cd SPC_ClassScheduler_WebApp`
-3. `pip install -r requirements.txt`
+3. `source ~/.venvs/flask/bin/activate`
+4. `pip install -r requirements.txt`
 
 ## Usage:
 
 `flask run`
+
+## Deployment:
+
+![DigitalOcean](https://docs.digitalocean.com/tutorials/app-deploy-flask-app/)
